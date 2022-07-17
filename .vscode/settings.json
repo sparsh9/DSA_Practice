@@ -1,0 +1,12 @@
+{
+    "C_Cpp.errorSquiggles": "Disabled",
+    "files.associations": {
+        "*.ejs": "html",
+        "stdbool.h": "c",
+        "pthread.h": "c",
+        "stdio.h": "c",
+        "semaphore.h": "c",
+        "stdlib.h": "c",
+        "__threading_support": "c"
+    }
+}
