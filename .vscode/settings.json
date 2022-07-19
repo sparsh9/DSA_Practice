@@ -8,6 +8,7 @@
         "semaphore.h": "c",
         "stdlib.h": "c",
         "__threading_support": "c",
-        "ostream": "cpp"
+        "ostream": "cpp",
+        "iostream": "cpp"
     }
 }
