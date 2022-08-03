@@ -10,7 +10,6 @@ import pandas as pd
 # and store it in a list
 
 terms = {}
-words = []
 
 filename = 'book.pdf'
 with open(filename,'rb') as pdfFileObj:
@@ -40,10 +39,11 @@ with open(filename,'rb') as pdfFileObj:
     print(terms)
     print(len(terms))
 
+    words = terms.values()
     wordcloud = WordCloud(width = 800, height = 800,
                 background_color ='white',
                 stopwords = stopwords,
-                min_font_size = 10).generate(terms)
+                min_font_size = 10).generate(words)
     # Create graph
     x, y = zip(*terms)
     plt.plot(x, y)
