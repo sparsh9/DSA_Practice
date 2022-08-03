@@ -3,11 +3,14 @@ from nltk.tokenize import word_tokenize
 from nltk.corpus import stopwords
 from nltk.stem import PorterStemmer
 import matplotlib.pyplot as plt
+from wordcloud import WordCloud, STOPWORDS
+import pandas as pd
 
 # Python code to extract words from a PDF file
 # and store it in a list
 
 terms = {}
+words = []
 
 filename = 'book.pdf'
 with open(filename,'rb') as pdfFileObj:
@@ -37,10 +40,23 @@ with open(filename,'rb') as pdfFileObj:
     print(terms)
     print(len(terms))
 
+    wordcloud = WordCloud(width = 800, height = 800,
+                background_color ='white',
+                stopwords = stopwords,
+                min_font_size = 10).generate(terms)
+    # Create graph
     x, y = zip(*terms)
     plt.plot(x, y)
     plt.xlabel('Terms')
     plt.ylabel('Frequency')
 
     plt.xticks([])
+    plt.show()
+
+    # WordCloud
+    plt.figure(figsize = (8, 8), facecolor = None)
+    plt.imshow(wordcloud)
+    plt.axis("off")
+    plt.tight_layout(pad = 0)
+ 
     plt.show()
