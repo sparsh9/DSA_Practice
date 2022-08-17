@@ -7,8 +7,7 @@ public:
     // Approach 1
     bool isAnagram(string s, string t) {
         unordered_map<char,int> maps;
-        unordered_map<char,int> mapt;
-        for(auto &x:s)
+        for(char x:s)
         {
             maps[x]++;
         }
@@ -21,10 +20,10 @@ public:
         // Here we are checking if that key is already present in the map or not
         // and if it is then we are decrementing the value of that key by 1 from the map
         // And, when the value of that key becomes less than 0 in the map , then we return false
-        for(auto &x:t)
+        for(char x:t)
         {
-            mapt[x]--;
-            if(mapt[x]<0)
+            maps[x]--;
+            if(maps[x]<0)
                 return false;
         }
         return true;
