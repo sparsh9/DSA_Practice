@@ -19,7 +19,7 @@ public:
 // 1) 1st Iterator for all iterators in the nums.
 // 2) 2nd Iterator with respect to the 1st iterator and increasing the sum for each iteration.
 // 3) Checking the maximum sum and returning it.
-// 4) O(n) time complexity.
+// 4) O(n2) time complexity.
 
 
 
