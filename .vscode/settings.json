@@ -92,6 +92,7 @@
         "utility": "cpp",
         "valarray": "cpp",
         "vector": "cpp",
-        "__bits": "cpp"
+        "__bits": "cpp",
+        "version": "cpp"
     }
 }
