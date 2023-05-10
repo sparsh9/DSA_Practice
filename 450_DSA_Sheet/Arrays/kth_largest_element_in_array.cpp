@@ -27,3 +27,17 @@ public:
         return pq.top();
     }
 };
+
+// Approach 3 (Using max heap)
+class Solution {
+public:
+    int findKthLargest(vector<int>& nums, int k) {
+        priority_queue<int> q(nums.begin(),nums.end());
+        // Removing all the k-1 greatest numbers
+        for(int i=0;i<k-1;i++){
+            q.pop();
+        }
+        // kth greatest number
+        return q.top();
+    }
+};

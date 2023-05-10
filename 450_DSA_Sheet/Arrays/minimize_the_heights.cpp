@@ -30,13 +30,16 @@ class Solution {
     sort(arr,arr+n);
     
     int diff=arr[n-1]-arr[0];
+    int smallest = arr[0]+k;
+    int largest = arr[n-1]-k;
     
     for(int i=1;i<n;i++)
     {
         if(arr[i]-k<0)continue;
-        
-        int maxx=max(arr[i-1]+k,arr[n-1]-k);
-        int minn=min(arr[0]+k,arr[i]-k);
+        // checking the maximum of the original maximum and (before_element+k)
+        int maxx=max(arr[i-1]+k,largest);
+        // Checking the minimum of the original minimum and (current_element-k)
+        int minn=min(smallest,arr[i]-k);
         
         diff=min(diff,maxx-minn);
     }

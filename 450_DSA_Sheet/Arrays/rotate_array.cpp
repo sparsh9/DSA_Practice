@@ -6,6 +6,7 @@ public:
              
         //in-place 
         k = k%nums.size();
+        // reverse(a[0],a[n]) reverses all elements from a[0] to a[n-1]. It is [0,n) where n is not considered.
         reverse(nums.begin(), nums.end());
         reverse(nums.begin(), nums.begin()+k);
         reverse(nums.begin()+k, nums.end());
