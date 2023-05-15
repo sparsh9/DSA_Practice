@@ -93,6 +93,7 @@
         "valarray": "cpp",
         "vector": "cpp",
         "__bits": "cpp",
-        "version": "cpp"
+        "version": "cpp",
+        "filesystem": "cpp"
     }
 }
