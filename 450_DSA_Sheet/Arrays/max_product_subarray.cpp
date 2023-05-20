@@ -25,7 +25,7 @@ public:
             if(max_pro ==0)
                 max_pro = 1;
         }
-        return max_pro;
+        return max_pro_current;
         
     }
 };
