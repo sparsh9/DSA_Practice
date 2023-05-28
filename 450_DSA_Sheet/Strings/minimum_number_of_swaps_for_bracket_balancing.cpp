@@ -7,7 +7,7 @@ public:
             if(s[i] == '[')
                 v.push_back(i);
         } 
-        int idx=0; // the index of the '[' in the array to balance the imbalance by ']'
+        int idx=0; // keeps track of the index of the '[' in the array to balance the imbalance by ']'
         int ans = 0; // counts the number of swaps
         int count = 0; // counts the balance of the string array
 

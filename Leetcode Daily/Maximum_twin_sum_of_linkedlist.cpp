@@ -1,6 +1,6 @@
 // Approach 1 (Naive Solution)
 // Make a recursive function and for every i, check its twin number and calculate the max twin sum
-// O(n*2) will be the time complexity and O(1) space complexity
+// O(n^2) will be the time complexity and O(1) space complexity
 
 // Approach 2 (Better than Naive)
 // Create a hash map over a single iteration and store the num[i] and its twin as pairs
