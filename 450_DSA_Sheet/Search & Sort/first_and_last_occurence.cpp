@@ -1,3 +1,10 @@
+// Approach 1 using 2 different Binary Searches for first and last occurences
+// As soon as we find an occurence, we assume to find another one in left halves and right halves.
+// So in the first occurence, we tend to find in left half as if there is any other and 
+// in the last occurence, we tend to find in the right half as if there is any other
+// This way we get both the positions
+// Incase, if there is only one element it will return same answer,
+// Otherwise it will return 2 different answers
 class Solution {
 int firstOcc(vector<int>& nums,int target){
     int s = 0;
