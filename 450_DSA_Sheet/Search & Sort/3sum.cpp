@@ -30,7 +30,7 @@ public:
 };
 
 
-// Approach 2 using 2 pointer with O(n^n) as T.C and O(1) as S.C
+// Approach 2 using 2 pointer with O(n^2) as T.C and O(1) as S.C
 class Solution {
 public:
     vector<vector<int>> threeSum(vector<int>& nums) {
