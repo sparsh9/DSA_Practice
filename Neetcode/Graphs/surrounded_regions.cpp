@@ -24,4 +24,5 @@ public:
         setX(board,i,j+1);
         setX(board,i,j-1);
     }
+    }
 };
