@@ -3,7 +3,6 @@ public:
     bool isBipartite(vector<vector<int>>& gr) {
         int n = gr.size();
         vector<int> colour(n, 0);
-
         for(int node = 0; node < n; node++){
             if(colour[node] != 0) continue;
 
@@ -25,7 +24,6 @@ public:
                 }
             }
         }
-
         return true;
     }
 };
