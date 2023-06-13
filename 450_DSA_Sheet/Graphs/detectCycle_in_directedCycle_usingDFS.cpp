@@ -15,18 +15,20 @@ private:
 
 		// traverse for adjacent nodes
 		for (auto it : adj[node]) {
-			// when the node is not visited
+			// when the node is not visited, we first start from there on as a dfs
 			if (!vis[it]) {
 				if (dfsCheck(it, adj, vis, pathVis) == true)
 					return true;
 			}
+            // here when the node is visited and 
 			// if the node has been previously visited
-			// but it has to be visited on the same path
+			// but it has to be visited on the same path if not cyclic
+            // hence it is a cyclic
 			else if (pathVis[it]) {
 				return true;
 			}
 		}
-
+        // backtracking, therefore clearing the pathvis as we didn't found the cycle
 		pathVis[node] = 0;
 		return false;
 	}
