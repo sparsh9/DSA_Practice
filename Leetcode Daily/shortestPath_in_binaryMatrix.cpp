@@ -75,7 +75,7 @@ public:
                 int i = x + dir[0];
                 int j = y + dir[1];
 
-                if(isSafe(i,j,m,n) && grid[i][j] == 0 &&d+1 < result[i][j]){ // 1 is the distance between two nodes
+                if(isSafe(i,j,m,n) && grid[i][j] == 0 && d+1 < result[i][j]){ // 1 is the distance between two nodes
                     result[i][j] = d+1;
                     pq.push({d+1,{i,j}});
                 }
