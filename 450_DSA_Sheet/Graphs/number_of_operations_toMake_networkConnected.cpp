@@ -44,7 +44,7 @@ public:
             rank.at(ulp_u)++;
         }
     }
-
+    // returns total number of different components
     int components(int size){
         int count=0;
         for(int i{0};i<size;++i){
