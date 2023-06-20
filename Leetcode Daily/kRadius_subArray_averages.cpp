@@ -43,3 +43,44 @@ public:
 
 
 // Approach 2 (Using Sliding Window)
+class Solution {
+public:
+    vector<int> getAverages(vector<int>& nums, int k) {
+        int n = nums.size();
+        
+        if(k == 0)
+            return nums;
+    
+        vector<int> result(n, -1);
+        
+        if(n < 2*k + 1)
+            return result;
+        
+        long long windowSum = 0;
+        
+        int left  = 0;
+        int right = 2*k;
+        int radiusCenter = k;
+        
+        for(int i = left; i <= right; i++) {
+            windowSum += nums[i];
+        }
+        int windowSize = (2*k + 1);
+        // First Window sum at center index = k
+        result[radiusCenter] = windowSum/windowSize;
+        
+        right++;
+        while(right < n) {
+            radiusCenter++;
+            left++;
+            int out_of_window  = nums[left-1];
+            int in_to_window = nums[right];
+            
+            windowSum = windowSum - out_of_window + in_to_window;
+            
+            result[radiusCenter] = windowSum/windowSize;
+            right++;
+        }
+        return result;
+    }
+};
