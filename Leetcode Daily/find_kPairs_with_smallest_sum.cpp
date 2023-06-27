@@ -34,3 +34,46 @@ public:
 };
 
 
+// Approach 2 (using min heap)
+
+class Solution {
+public:
+    vector<vector<int>> kSmallestPairs(vector<int>& nums1, vector<int>& nums2, int k) {
+        vector<vector<int>> ans;
+        
+        // Custom comparator for the min heap
+        auto cmp = [&](pair<int, int>& a, pair<int, int>& b) {
+            return nums1[a.first] + nums2[a.second] > nums1[b.first] + nums2[b.second];
+        };
+        
+        priority_queue<pair<int, int>, vector<pair<int, int>>, decltype(cmp)> pq(cmp);
+        
+        // Push the first K pairs into the min heap
+        for (int i = 0; i < min((int)nums1.size(), k); i++) {
+            pq.push({i, 0});
+        }
+        
+        // Process the top K pairs from the min heap
+        while (!pq.empty() && k--) {
+            auto idx = pq.top();
+            pq.pop();
+            
+            int i = idx.first;
+            int j = idx.second;
+            
+            ans.push_back({nums1[i], nums2[j]});
+            
+            // Push the next pair from nums2 with the same nums1 element
+            if (j + 1 < nums2.size()) {
+                pq.push({i, j + 1});
+            }
+            
+            // Push the next nums1 element with the smallest nums2 element
+            if (j == 0 && i + 1 < nums1.size()) {
+                pq.push({i + 1, j});
+            }
+        }
+        
+        return ans;
+    }
+};
