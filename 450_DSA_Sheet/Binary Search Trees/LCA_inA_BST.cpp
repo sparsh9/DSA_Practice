@@ -1,4 +1,5 @@
 // Using recursion and property of BST
+// Here we are using the power of properties of BST, which make this more easy to get than from normal BT
 class Solution {
 public:
     TreeNode* lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q) {
