@@ -34,7 +34,8 @@ int frogJump(int n, vector<int> &heights)
     for(int i =1;  i <n; i++){
       int fs  = dp[i-1] + abs(heights[i] - heights[i-1]);
       int ss = INT_MAX;
-      
+      // second step will only happen if i is greater than 1 otherwise it will 
+      // only take 1 step instead of 2
       if(i >1) ss= dp[i-2] + abs(heights[i] - heights[i-2]);
  
       dp[i] = min(fs,ss);
@@ -55,7 +56,8 @@ int frogJump(int n, vector<int> &heights)
   for(int i=1; i< n; i++){
     int fs = prev + abs(heights[i] - heights[i-1]);
     int ss = INT_MAX;
-    
+    // second step will only happen if i is greater than 1 otherwise it will 
+    // only take 1 step instead of 2
     if(i >1) ss = prev2 + abs(heights[i] - heights[i-2]);
     prev2= prev;
     prev = min(fs,ss);
