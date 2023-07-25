@@ -19,8 +19,10 @@ bool subsetSumToK(int n, int k, vector<int> &arr) {
 // Approach 2 (Using Memoization)
 
 bool helper(int n, int k, vector<int> &arr, vector<vector<int>> &dp) {
-    if(n == 0) return arr[n][k] = target; // when there is only one element, we can make target only if it is equal to the element
-    if(k == 0) return arr[n][k] = true; // when target is 0, we can always make it by not taking any element
+    // base case for index = 0
+    if(n == 0) return dp[n][k] = target; // when there is only one element, we can make target only if it is equal to the element
+    // base case for target = 0
+    if(k == 0) return dp[n][k] = true; // whenever target is 0, we can always make it with this or any element, hence all are true
 
     if(dp[n][k] != -1) return dp[n][k];
 
@@ -30,6 +32,9 @@ bool helper(int n, int k, vector<int> &arr, vector<vector<int>> &dp) {
         take = helper(n-1,k-arr[n],arr,dp); // target is reduced by arr[n]
 
     return dp[n][k] = take || notTake;
+    // so here ultimately, we are forming a matrix such that for every target k,
+    // we get the True or False value for every index n
+    // which signifies whether we take the element at that index or not in our subset equal to target k
 }
 
 bool subsetSumToK(int n, int k, vector<int> &arr) {
@@ -46,7 +51,9 @@ bool subsetSumToK(int n, int k, vector<int> &arr) {
     // base case
     for(int i = 0; i < n; i++) dp[i][0] = true; // when target is 0, we can always make it by not taking any element
 
-    dp[0][arr[0]] = true; // when there is only one element, we can make target only if it is equal to the element
+    // when the index is 0 and the target is equal to the element at that index
+    // then we can mark it as true
+    dp[0][arr[0]] = true; 
 
     for(int i = 1; i < n; i++) {
         for(int j = 1; j <= k; j++) {
