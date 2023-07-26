@@ -56,6 +56,13 @@ int ninjaTraining(int n, vector<vector<int>> &points)
     return helper(n-1, 3, points, dp);
 }
 
+// -----------------------------------------------------
+// | Rules for writing Tabulation from Memoization:     |
+// | 1. Copy the base cases                             |
+// | 2. Write the changing parameters in opposite order |
+// | 3. Copy the recursive calls                        |
+// -----------------------------------------------------
+
 
 
 // Approach 3 (Using Tabulation)
