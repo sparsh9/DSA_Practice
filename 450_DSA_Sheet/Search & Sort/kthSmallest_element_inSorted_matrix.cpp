@@ -1,8 +1,27 @@
 // Approach (Using Binary Search on 2D Matrix)
 class Solution {
 public:
-    // Part 2 of the solution
+    // Part 1 of the Solution
+    // This helper function counts the total number of elements 
+    // which are less or than equal to the target element in a sorted matrix
+    // Refer the Search in 2D Matrix leetcode problem for more clarity
+    int countLessThanEqualtoElements(vector<vector<int>>& matrix, int target) {
+        int n = matrix.size();
+        int i = n - 1, j = 0, count = 0;
+        while (i >= 0 && j < n) {
+            if (matrix[i][j] <= target) {
+                count += (i + 1);
+                j++;
+            } 
+            else {
+                i--;
+            }
+        }
+        return count;
+    }
 
+
+    // Part 2 of the solution
     // In this element, as we got to know that how many numbers are less or equal to a target,
     // Which means we get the kth element in the matrix
     // Therefore to get the kth smallest element, we will now apply the binary search on the Ranks of elements in the matrix
@@ -21,22 +40,4 @@ public:
         return i;
     }
 
-    // Part 1 of the Solution
-
-    // This helper function counts the total number of elements 
-    // which are less or than equal to the target element in a sorted matrix
-    // Refer the Search in 2D Matrix leetcode problem for more clarity
-    int countLessThanEqualtoElements(vector<vector<int>>& matrix, int target) {
-        int n = matrix.size();
-        int i = n - 1, j = 0, count = 0;
-        while (i >= 0 && j < n) {
-            if (matrix[i][j] <= target) {
-                count += (i + 1);
-                j++;
-            } else {
-                i--;
-            }
-        }
-        return count;
-    }
 };
