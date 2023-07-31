@@ -3,31 +3,47 @@ class Solution {
 public:
     vector<vector<int>> threeSum(vector<int>& nums) {
         int n = nums.size();
+        
+        // Step 1: Sort the input array in ascending order
         sort(nums.begin(), nums.end());
+        
+        // Step 2: Initialize a set to store unique triplets
         set<vector<int>> set;
-        vector<vector<int>> output;
-        for(int i=0; i<n-2; i++){
-            int low = i+1, high = n-1;
+        
+        // Step 3: Iterate over the array and fix the first element of the triplet
+        for(int i = 0; i < n - 2; i++){
+            int low = i + 1; // Pointer to the second element (left)
+            int high = n - 1; // Pointer to the third element (right)
+            
+            // Step 4: Two-pointer approach to find the remaining two elements of the triplet
             while(low < high){
-                if(nums[i] + nums[low] + nums[high] < 0){
+                int sum = nums[i] + nums[low] + nums[high];
+                
+                if(sum < 0){ // If the sum is less than 0, move the left pointer to the right
                     low++;
                 }
-                else if(nums[i] + nums[low] + nums[high] > 0){
+                else if(sum > 0){ // If the sum is greater than 0, move the right pointer to the left
                     high--;
                 }
-                else{
+                else{ // If the sum is equal to 0, we found a triplet
                     set.insert({nums[i], nums[low], nums[high]});
                     low++;
                     high--;
                 }
             }
         }
+        
+        // Step 5: Convert the set of unique triplets to a vector
+        vector<vector<int>> output;
         for(auto it : set){
             output.push_back(it);
         }
+        
+        // Step 6: Return the vector of unique triplets
         return output;
     }
 };
+
 
 
 // Approach 2 using 2 pointer with O(n^2) as T.C and O(1) as S.C
