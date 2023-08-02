@@ -77,3 +77,33 @@ public:
         return dp[0][1][2];
     }
 };
+
+
+
+
+// Approach 4 : Tabulation (Optimized)
+
+class Solution {
+public:
+    int maxProfit(vector<int>& prices) {
+        int n = prices.size();
+        vector<vector<int>> after(2, vector<int>(3, 0));
+        vector<vector<int>> curr(2, vector<int>(3, 0));
+
+        for(int ind = n-1;ind>=0;ind--){
+            for(int buy = 0;buy<2;buy++){
+                // we didn't took cap = 0 as its already returning 0 in memoization case as well
+                for(int cap = 1;cap<=2;cap++){
+                    if(buy == 1){
+                        curr[buy][cap] = max(-prices[ind] + after[0][cap], 0 + after[1][cap]);
+                    }
+                    else{
+                        curr[buy][cap] = max(prices[ind] + after[1][cap-1], 0 + after[0][cap]);
+                    }
+                }
+            }
+            after = curr;
+        }
+        return after[1][2];
+    }
+};
