@@ -41,9 +41,10 @@ public:
         // out of bound
         if(ind == n) return 0;
 
-        // not take
+        
         if(dp[ind][prev_ind+1] != -1) return dp[ind][prev_ind+1];
 
+        // not take
         int len = 0 + helper(ind+1,nums,n,prev_ind,dp);
 
         // take
