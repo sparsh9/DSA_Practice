@@ -25,7 +25,7 @@ public:
         else if(right == NULL) {
             return left;
         }
-        else { //both left and right are not null, we found our result
+        else { //both left and right are not null or we got some result from both sides of the tree
             return root;
         }
     }

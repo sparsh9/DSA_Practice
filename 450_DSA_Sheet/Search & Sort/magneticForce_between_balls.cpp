@@ -3,9 +3,9 @@ class Solution {
 public:
     int maxDistance(vector<int>& position, int m) {
         sort(position.begin(), position.end());
-        // l is set to 0 (minimum distance) and r is set to the max distance.
+        // l is set to 1 (minimum distance) and r is set to the max distance.
         // We are performing the binary search on the distance and not the indexes.
-        int l = 0, r = position.back() - position.front();
+        int l = 1, r = position.back() - position.front();
         while (l < r) {
             int mid = r - (r - l) / 2;
             // count the number of balls that can be placed with a distance of mid between them. 

@@ -1,13 +1,6 @@
 // Approach 1 (Using recursion)
 class Solution {
 public:
-    vector<vector<int>> pathSum(TreeNode* root, int sum) {
-        vector<vector<int> > allPaths;
-        vector<int> path;
-        findPaths(root, sum, path, allPaths);
-        return allPaths;  
-    }
-private:
     void findPaths(TreeNode* node, int sum, vector<int>& path, vector<vector<int> >& allPaths) {
         if (!node) return;
         // push the node into the path as it from where we come here
@@ -20,4 +13,11 @@ private:
         // if it comes till here and if its not target sum, pop that node from the path, as it is a dead end
         path.pop_back();
     }
+    vector<vector<int>> pathSum(TreeNode* root, int sum) {
+        vector<vector<int> > allPaths;
+        vector<int> path;
+        findPaths(root, sum, path, allPaths);
+        return allPaths;  
+    }
+
 };

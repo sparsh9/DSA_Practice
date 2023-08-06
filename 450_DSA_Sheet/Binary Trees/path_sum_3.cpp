@@ -2,6 +2,13 @@
 class Solution {
 public:
     int ans=0;
+    // function to check if there is any path which equals target sum
+    void dfs(TreeNode* root, long long int sum){
+        if(!root)return;
+        if(root->val==sum)ans++;
+        dfs(root->left,sum-root->val);
+        dfs(root->right,sum-root->val);
+    }
     int pathSum(TreeNode* root, int sum) {
         if(root){
             // checking from this node to others
@@ -12,12 +19,5 @@ public:
             pathSum(root->right,sum);
         }
         return ans;
-    }
-    // function to check if there is any path which equals target sum
-    void dfs(TreeNode* root, long long int sum){
-        if(!root)return;
-        if(root->val==sum)ans++;
-        dfs(root->left,sum-root->val);
-        dfs(root->right,sum-root->val);
     }
 };
