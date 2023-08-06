@@ -92,11 +92,9 @@ public:
                 if(prev_ind == -1 || nums[ind] > nums[prev_ind]){
                     len = max(len, 1 + dp[ind+1][ind+1]);
                 }
-
                 dp[ind][prev_ind+1] = len;
             }
         }
-
         return dp[0][-1+1];
     }
 };
@@ -122,7 +120,6 @@ public:
                 if(prev_ind == -1 || nums[ind] > nums[prev_ind]){
                     len = max(len, 1 + next[ind+1]);
                 }
-
                 curr[prev_ind+1] = len;
             }
             next = curr;
@@ -131,3 +128,6 @@ public:
         return curr[-1+1];
     }
 };
+
+
+
