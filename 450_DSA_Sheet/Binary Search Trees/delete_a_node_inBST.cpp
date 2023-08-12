@@ -14,7 +14,7 @@ public:
             if (root->val > key) {
                 // we check if it's left node has value as key
                 if (root->left != NULL && root->left->val == key) {
-                    root->left = helper(root->left);
+                    root->left = helper(root->left); // this is the new left node of the root node
                     break;
                 } else {
                     root = root->left;
@@ -35,8 +35,8 @@ public:
 
     // 1) stores the right most node of the left subtree
     // 2) stores the right subtree's root node
-    // points the right most node of the left subtree to the right subtree's root node
-    // returns the left subtree's root node
+    // 3) it points the right most node of the left subtree to the right subtree's root node
+    // 4) returns the left subtree's root node
     TreeNode* helper(TreeNode* root) {
             if (root->left == NULL) 
             {
@@ -49,7 +49,8 @@ public:
             TreeNode* rightChild = root->right;
             TreeNode* lastRight = findLastRight(root->left);
             lastRight->right = rightChild;
-            return root->left;
+            return root->left; // new root node of the left subtree of the root node
+            // it returns the left subtree's root node because the root node is deleted
     }
 
     // Finds the right most node of the left subtree
