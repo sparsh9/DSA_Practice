@@ -1,5 +1,24 @@
 // Using Recursion, we see that it comes similar to fibonacci series
 
+// Approach 1 (Using Recursion)
+
+class Solution {
+    public:
+    int helper(int n){
+        //base case
+        if(n<=2)
+          return n;
+        
+        return helper(n-1)+helper(n-2);
+    }
+
+
+    int climbStairs(int n) {
+        return helper(n);
+    }
+};
+
+
 // Approach 1 (Using Memoization Top-Down)
 class Solution {
 public:

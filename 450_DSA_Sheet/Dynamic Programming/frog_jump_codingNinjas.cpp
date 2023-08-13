@@ -5,7 +5,9 @@ int minen(int n , vector<int> &heights, vector<int> &dp){
     if( n == 0) return 0;
     
     if(dp[n] != -1) return dp[n];
-    int right = INT_MAX;
+    int right = INT_MAX; // INT_MAX is used because we are taking min of left and right
+    // height[i] is for (i+1)th index (0 based indexing) 
+    // and energy from ith to jth = height[i-1] = height[j-1]
     int left = minen(n-1 , heights, dp)+ abs(heights[n] - heights[n-1]);
     if (n > 1) {
       right = minen(n - 2, heights, dp) + abs(heights[n] - heights[n - 2]);
@@ -17,6 +19,8 @@ int frogJump(int n, vector<int> &heights)
 {
     // Write your code here.
     vector<int> dp(n+1, -1);
+    // we used n+1 because we are using 1 based indexing in dp as 
+    // height[i] is for (i+1)th index (0 based indexing)
    return minen(n-1 , heights , dp);
  
 }
