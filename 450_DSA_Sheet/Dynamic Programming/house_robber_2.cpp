@@ -7,17 +7,18 @@ public:
     long long int solve(vector<int>& arr){
         int n = arr.size();
         long long int prev = arr[0];
-        long long int prev2 =0;
+        long long int prev2 =0; // intially arr[-1] is 0 
         
         for(int i=1; i<n; i++){
-            // to pick (pick current and not pick next one)
-            long long int pick = arr[i];
-            // only if i > 1 then only add prev2, otherwise for negative its 0 only
-            if(i>1)
-                pick += prev2;
+            // // to pick (pick current and not pick next one)
+            // long long int pick = arr[i];
+            // // only if i > 1 then only add prev2, otherwise for negative its 0 only
+            // if(i>1)
+            //     pick += prev2;
+            long long int pick = arr[i] + prev2; // same as above 3 lines
             
             // to not pick (not pick and then pick next one)
-            int long long nonPick = 0 + prev;
+            long long int nonPick = 0 + prev;
             
             long long int cur_i = max(pick, nonPick);
             prev2 = prev;

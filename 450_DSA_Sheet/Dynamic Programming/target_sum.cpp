@@ -3,7 +3,8 @@
 // such that (sum of subset1 - sum of subset2) = target
 // as the subset2 can be considered as all the elements with negative sign 
 // and subset1 can be considered as all the elements with positive sign
-// so the above equation can be written as
+// so the above equation can be written as 
+// (sum of subset1 - sum of subset2) = target
 
 
 

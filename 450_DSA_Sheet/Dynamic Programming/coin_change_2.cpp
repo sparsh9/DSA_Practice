@@ -6,7 +6,7 @@ public:
         if(amount == 0) return 1;
 
         if(ind==0){
-            return (amount % coins[ind] == 0);
+            return (amount % coins[ind] == 0); // if true then 1 otherwise 0
         }
 
         // case of take and not take
