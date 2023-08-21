@@ -15,8 +15,8 @@ void search(char pat[], char txt[], int q)
 	int i, j; 
 	int p = 0; // hash value for pattern 
 	int t = 0; // hash value for txt 
-	int h = 1; 
-	// The value of h would be "pow(d, M-1)%q" 
+	int h = 1; // value of h is used in rehashing when we slide the pattern over text
+	// The value of h would be "pow(d, M-1)%q" , but to avoid computation, we are doing below thing
 	for (i = 0; i < M - 1; i++) 
 		h = (h * d) % q; 
 	// Calculate the hash value of pattern and first 
@@ -48,7 +48,7 @@ void search(char pat[], char txt[], int q)
 		// leading digit, add trailing digit 
 		if ( i < N-M ) 
 		{ 
-			t = (d*(t - txt[i]*h) + txt[i+M])%q; 
+			t = (d*(t - txt[i]*h) + txt[i+M])%q; // here we multiply txt[i] with h because we are removing txt[i] from the window
 			// We might get negative value of t, converting it 
 			// to positive 
 			if (t < 0) 
