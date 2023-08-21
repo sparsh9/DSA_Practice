@@ -1,5 +1,4 @@
-/* Following program is a C++ implementation of Rabin Karp 
-Algorithm given in the CLRS book */
+/* Rabin Karp Algorithm for String Patter Searching */
 #include <bits/stdc++.h> 
 using namespace std; 
 // d is the number of characters in the input alphabet 
