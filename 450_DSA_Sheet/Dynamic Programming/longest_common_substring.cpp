@@ -31,6 +31,10 @@ class Solution{
             // if does not match then simply put 0 
             // because continuity will break otherwise
         }
+        // checking for different starting points from string a and b each
+
+        int s1 = helper(a, b, i + 1, j, dp);
+        int s2 = helper(a, b, i, j + 1, dp); 
         
         return dp[i][j] = maxi;
     }
@@ -42,12 +46,7 @@ class Solution{
         // dp[i][j] represents longest common subtring till index1 and index2 
         // of strings1 and strings2 as = dp[index1][index2] from 0 to n-1 and 0 to m-1
 
-        // here we are running for loop for all the possible starting points of both the substrings
-        for(int i = 0; i < n; i++) {
-            for(int j = 0; j < m; j++) {
-                helper(S1, S2, i, j, dp);
-            }
-        }
+        helper(S1, S2, 0, 0, dp);
         
         return ans;
     }
