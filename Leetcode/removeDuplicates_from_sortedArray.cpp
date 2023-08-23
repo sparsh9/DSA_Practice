@@ -7,6 +7,7 @@ public:
             return n;
         // Initially there will be atleast 1 unique element hence ans = 1 
         int ans=1, left=0;
+        // it will move till last element
         for(int right=1; right<n; right++){
             if(nums[right]!=nums[left]){
                 left++;
