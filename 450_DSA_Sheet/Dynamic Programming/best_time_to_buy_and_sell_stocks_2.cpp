@@ -10,9 +10,8 @@ public:
             return max(buyStock, notBuyStock);
         }
         else{
-            int sellStock = helper(ind+2, true, prices, n) + prices[ind];
-            int notSellStock = helper(ind+1, false, prices, n);
-            return max(sellStock, notSellStock);
+            int sellStock = helper(ind+1, true, prices, n) + prices[ind]; 
+            int notSellStock = helper(ind+1, false, prices, n); 
         }
     }
 
