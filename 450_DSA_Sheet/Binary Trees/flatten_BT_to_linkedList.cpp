@@ -1,5 +1,5 @@
 // Approach 1 (Recursive)
-// Herer we are traversing in the (right left root) fashion. we start with the right most big element of the BT
+// Here we are traversing in the (right left root) fashion. we start with the right most big element of the BT
 // and similar to the linkedlist, we are marking its right as null and then while returning, making it as our prev node
 // while backtracking, we are making the backtracked node pointing towards prev, hence making a chain
 class Solution {
