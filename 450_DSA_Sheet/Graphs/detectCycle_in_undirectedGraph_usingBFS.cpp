@@ -34,7 +34,7 @@ class Solution {
   public:
     // Function to detect cycle in an undirected graph.
     bool isCycle(int V, vector<int> adj[]) {
-        // initialise them as unvisited 
+        // initialise all of them as unvisited 
         int vis[V] = {0};
         for(int i = 0;i<V;i++) {
             if(!vis[i]) {

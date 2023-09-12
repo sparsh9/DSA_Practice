@@ -15,7 +15,7 @@ public:
 	    vector<vector<bool>> vis(n,vector<bool>(m,false));
         // distance matrix to be returned as answer 
 	    vector<vector<int>> dis(n,vector<int>(m,0));
-        // queue for bfs traversal q((row,col),steps)
+        // queue for bfs traversal q((row,col),steps/distance)
 	    queue<pair<pair<int,int>,int>>q;
 	    for(int i=0;i<n;i++)
 	    {
@@ -24,8 +24,8 @@ public:
                 // Initially pushing all the indexes with value as 0
 	            if(grid[i][j]==0)
 	            {
-	                q.push({{i,j},0});
                     // distance from 0 to nearest 0 will be 0 itself
+	                q.push({{i,j},0});
 	                vis[i][j]=true;
 	            }
 	        }
