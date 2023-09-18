@@ -3,7 +3,8 @@
         {
             "type": "cppbuild",
             "label": "C/C++: clang build active file",
-            "command": "/usr/bin/clang",
+            // "command": "/usr/bin/clang",
+            "command": "/opt/local/bin/clang",
             "args": [
                 "-fdiagnostics-color=always",
                 "-g",
@@ -26,8 +27,11 @@
         {
             "type": "cppbuild",
             "label": "C/C++: clang++ build active file",
-            "command": "/usr/bin/clang++",
+            // "command": "/usr/bin/clang++",
+            "command": "/opt/local/bin/clang",
             "args": [
+                "_std=c++17",
+                "_stdlib=libc++",
                 "-fcolor-diagnostics",
                 "-fansi-escape-codes",
                 "-g",
