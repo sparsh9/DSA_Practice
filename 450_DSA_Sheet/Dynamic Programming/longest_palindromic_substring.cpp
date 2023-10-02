@@ -13,7 +13,7 @@ public:
             for(int i=0,j=i+diff; j<n; i++, j++){
                 // if the difference is 0, then we will simply make dp[i][j] = 1 as
                 // it is a single character and it is a palindrome
-                if(i==j) 
+                if(i==j or diff == 0) 
                     dp[i][j]=1;
 
                 // if the difference is 1 which means there are 2 characters, then we will check if the characters are same
